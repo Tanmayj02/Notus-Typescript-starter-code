@@ -4,11 +4,11 @@ import { createPopper } from "@popperjs/core";
 const NotificationDropdown = () => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
-  const btnDropdownRef = React.createRef();
-  const popoverDropdownRef = React.createRef();
+  const btnDropdownRef = React.createRef<HTMLDivElement>();
+  const popoverDropdownRef = React.createRef<HTMLDivElement>();
   const openDropdownPopover = () => {
     createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
-      placement: "bottom-start",
+      placement: "left-start",
     });
     setDropdownPopoverShow(true);
   };
@@ -18,15 +18,16 @@ const NotificationDropdown = () => {
   return (
     <>
       <a
-        className="text-blueGray-500 block py-1 px-3"
+        className="text-blueGray-500 py-1 px-3"
         href="#pablo"
-        ref={btnDropdownRef}
+        // here check again
+        ref={btnDropdownRef as any}
         onClick={(e) => {
           e.preventDefault();
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        <i className="fas fa-bell"></i>
+        <i className="fas fa-ellipsis-v"></i>
       </a>
       <div
         ref={popoverDropdownRef}
@@ -61,16 +62,6 @@ const NotificationDropdown = () => {
           onClick={(e) => e.preventDefault()}
         >
           Something else here
-        </a>
-        <div className="h-0 my-2 border border-solid border-blueGray-100" />
-        <a
-          href="#pablo"
-          className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-          }
-          onClick={(e) => e.preventDefault()}
-        >
-          Seprated link
         </a>
       </div>
     </>
