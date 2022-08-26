@@ -61,7 +61,8 @@ export default class MyApp extends App {
     return { pageProps };
   }
   render() {
-    const { Component, pageProps } = this.props;
+    // Here
+    const { Component, pageProps }: any = this.props;
 
     const Layout = Component.layout || (({ children }) => <>{children}</>);
 
