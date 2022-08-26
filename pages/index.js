@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import Link from "next/link";
+// import Test from "components/test";
+import Test from "../components/test";
 
 // import IndexNavbar from "components/Navbars/IndexNavbar.js";
 // import Footer from "components/Footers/Footer.js";
@@ -14,7 +16,7 @@ export default function Index() {
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
               <h2 className="font-semibold text-4xl text-blueGray-600">
-                Notus NextJS - A beautiful extension for Tailwind CSS.
+                Notus NextJS - A beautiful extension for Tailwind CSS. <Test />
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
                 Notus NextJS is Free and Open Source. It does not change any of
